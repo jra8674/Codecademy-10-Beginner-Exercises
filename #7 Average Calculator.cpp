@@ -1,15 +1,29 @@
 #include <iostream>
-#include <array>
+#include <list>
+#include <string>
+
 using namespace std;
 
 //7. Create an average calculator
+
 int main(){
-    int num_list[5] = {1,2,3,4,5};
-    int x = sizeof(num_list)/4;
-    int sum = 0;
-    for (int i = 0; i < x; ++i){
-        sum += num_list[i];
+    string nums_in;
+    cout << "Please Enter a Few Numbers: ";
+    cin >> nums_in;
+
+    //Build List
+    int x = nums_in.size();
+    int num_list[x];
+    for (int i = 0; i < x; i++){
+        int y = (int)nums_in[i] - 48;
+        num_list[i] = y;
     }
-    int avg = sum / x;
-    cout << avg;
+
+    //Produce Average from Array
+    int z = 0;
+    for (int i = 0; i < x; i++){
+        z += num_list[i];
+    }
+    int avg = z / x;
+    cout << "Average is: " << avg;
 }
